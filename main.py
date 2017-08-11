@@ -13,7 +13,7 @@ rest_of_urls = x - y
 
 
 def get_all_links_from(channel):
-    for i in range(1, 60):
+    for i in range(26, 60):
         get_links_from(channel, i)
 
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, quit)
     signal.signal(signal.SIGTERM, quit)
     pool = Pool(processes=4)
-    # pool = Pool()
+    # # pool = Pool()
     # pool.map(get_all_links_from, channel_list.split())
     pool.map(get_all_items_from, [rest_url for rest_url in rest_of_urls])
     pool.close()
