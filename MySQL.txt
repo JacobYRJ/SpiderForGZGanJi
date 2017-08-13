@@ -1,0 +1,75 @@
+查询次数 
+
+mysql> select area,count(area) from guangzhou
+    -> group by area
+    -> order by count(area) desc;
+
+
+
+1、新建用户：
+
+　　>CREATE USER name IDENTIFIED BY 'ssapdrow';
+
+2、更改密码：
+
+　　>SET PASSWORD FOR name=PASSWORD('fdddfd');
+
+3、权限管理
+
+　　>SHOW GRANTS FOR name;    //查看name用户权限
+
+　　>GRANT SELECT ON db_name.* TO name;　　　　//给name用户db_name数据库的所有权限
+
+　　>REVOKE SELECT ON db_name.* TO name;　　　　//GRANT的反操作，去除权限；
+
+建表：mysql> create table test1
+    -> (id int unsigned auto_increment,
+    -> price float(10,2) not null,
+    -> title char(255) not null,
+    -> date date not null,
+    -> primary key (id))
+    -> ENGINE=InnoDB;
+
+插入表：mysql> insert into test1 values
+    -> (null,4800,"苹果iphone7 Plus","2017-07-01"),
+    -> (null,5500,"苹果iphone7+","2017-07-01"),
+    -> (null,4800,"苹果iphone7","2017-07-02");
+
+　2、复制表：
+
+　　>CREATE TABLE tb_name2 SELECT * FROM tb_name;
+
+　　或者部分复制：
+
+　　>CREATE TABLE tb_name2 SELECT id,name FROM tb_name;
+
+3、创建临时表：
+
+　　>CREATE TEMPORARY TABLE tb_name(这里和创建普通表一样);
+
+4、查看数据库中可用的表：
+
+　　>SHOW TABLES;
+
+5、查看表的结构：
+
+　　>DESCRIBE tb_name;
+
+　　也可以使用：
+
+　　>SHOW COLUMNS in tb_name; 　　　　//from也可以
+
+6、删除表：
+
+　　>DROP [ TEMPORARY ] TABLE [ IF EXISTS ] tb_name[ ,tb_name2.......];
+
+　　实例：
+
+　　>DROP TABLE IF EXISTS tb_name;
+
+7、表重命名：
+
+　　>RENAME TABLE name_old TO name_new;
+
+　　还可以使用：
+　　>ALTER TABLE name_old RENAME name_new;

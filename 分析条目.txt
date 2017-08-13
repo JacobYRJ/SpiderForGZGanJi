@@ -3,3 +3,20 @@
 2、价格前100，各类前100
 
 3、时间数据处理，100天内出现频数最多的IP 物品
+
+
+MySQL：
+
+建表：mysql> create table test1
+    -> (id int unsigned auto_increment,
+    -> price float(10,2) not null,
+    -> title char(255) not null,
+    -> date date not null,
+    -> primary key (id))
+    -> ENGINE=InnoDB;
+
+插入表：mysql> insert into test1 values
+    -> (null,4800,"苹果iphone7 Plus","2017-07-01"),
+    -> (null,5500,"苹果iphone7+","2017-07-01"),
+    -> (null,4800,"苹果iphone7","2017-07-02");
+
